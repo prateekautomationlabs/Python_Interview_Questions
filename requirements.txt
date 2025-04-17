@@ -1,0 +1,6 @@
+pytest
+pytest-html
+playwright
+mysql-connector-python
+requests
+pytest-xdist
