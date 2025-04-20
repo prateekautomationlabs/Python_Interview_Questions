@@ -14,7 +14,6 @@ def flattened_list(nested):
 
 print(flattened_list(nested))
 
-
 #in case of deeply nested list like nested_deep=[1, [2, [3, 4]]]
 
 def flattened_deeply_list(nested_deeply):
@@ -26,7 +25,19 @@ def flattened_deeply_list(nested_deeply):
             flattened_list.append(item)
 
     return flattened_list
-
-
-
 print(flattened_deeply_list(nested_deeply))
+
+nested_list =[1,[2,[3,[4]]],5]
+
+def resolve_nested_list(nested_list):
+    flattened_list=[]
+    for item in nested_list:
+        if isinstance(item,list):
+            flattened_list.extend(resolve_nested_list(item))
+        else:
+            flattened_list.append(item)
+
+    return flattened_list
+
+
+print(resolve_nested_list(nested_list))
